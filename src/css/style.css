@@ -1,0 +1,313 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e0e6ed;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #00d4ff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #e0e6ed;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+/* Main content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 140px);
+}
+
+.card {
+    background: rgba(20, 30, 48, 0.8);
+    border: 1px solid #00d4ff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.card h2 {
+    color: #00d4ff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.card h3 {
+    color: #4fc3f7;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.card p {
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card li {
+    margin-bottom: 0.5rem;
+}
+
+.card a {
+    color: #00d4ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card a:hover {
+    color: #4fc3f7;
+    text-shadow: 0 0 5px rgba(79, 195, 247, 0.3);
+}
+
+/* Form elements */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00d4ff;
+    border-radius: 5px;
+    color: #e0e6ed;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    box-shadow: 0 0 10px rgba(79, 195, 247, 0.2);
+}
+
+/* Table styles */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.price-table th, .price-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #00d4ff;
+}
+
+.price-table th {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.price-table td {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.price-table input {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #4fc3f7;
+    border-radius: 3px;
+    padding: 0.5rem;
+    color: #e0e6ed;
+    width: 100%;
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(45deg, #00d4ff, #4fc3f7);
+    color: #0a0a0a !important;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    color: #0a0a0a !important;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    color: #0a0a0a;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #ff4444, #cc0000);
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Suggestions dropdown */
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(20, 30, 48, 0.95);
+    border: 1px solid #00d4ff;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 0.8rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.input-container {
+    position: relative;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid #00d4ff;
+    padding: 2rem 0;
+    text-align: center;
+    color: #888;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Total display */
+.total-display {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Grid layout for cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .price-table {
+        font-size: 0.9rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}

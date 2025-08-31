@@ -1,0 +1,6 @@
+.vscode/*
+src/config/config.php
+stats/*
+favicon.ico
+robots.txt
+standard_index.html
