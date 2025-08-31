@@ -14,6 +14,10 @@ Currently, the project is in **early development** — the site is live with a `
 Live site can be seen at:  
 [Kawa Subdomain](https://kawa.rednecksnailspit.co.za/)
 
+## Related Projects
+
+- Backend services: [Kawakawa Services](https://github.com/RedNeckSnailSpit/kawakawa_services)
+
 ## License
 
 This project is released under the **GNU General Public License v3.0 (GPL-3.0)**.  
@@ -22,7 +26,7 @@ See the [LICENSE](LICENSE) file for details.
 ## Repository
 
 Source code is hosted at:  
-[https://github.com/RedNeckSnailSpit/kawakawa_web](https://github.com/RedNeckSnailSpit/kawakawa_web)
+[GitHub](https://github.com/RedNeckSnailSpit/kawakawa_web)
 
 ---
 
