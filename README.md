@@ -2,12 +2,17 @@
 
 A custom-built website for **Kawakawa Corporation**, designed to support internal coordination, including:
 
-- Pricing management
-- Logistics planning
-- Manufacturing oversight
-- Other corporate structure tools
+- Pricing management  
+- Logistics planning  
+- Manufacturing oversight  
+- Other corporate structure tools  
 
 Currently, the project is in **early development** — the site is live with a `Coming Soon` page while the core functionality is being built.  
+
+## Live Site
+
+Live site can be seen at:  
+[Kawa Subdomain](https://kawa.rednecksnailspit.co.za/)
 
 ## License
 
@@ -16,11 +21,8 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Repository
 
-Source code is hosted at:
-[GitHub](https://github.com/RedNeckSnailSpit/kawakawa_web)
-
-Live Site can be seen at:
-[Kawa Subdomain](https://kawa.rednecksnailspit.co.za/)
+Source code is hosted at:  
+[https://github.com/RedNeckSnailSpit/kawakawa_web](https://github.com/RedNeckSnailSpit/kawakawa_web)
 
 ---
 
