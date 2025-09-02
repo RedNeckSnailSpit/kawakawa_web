@@ -19,9 +19,12 @@ try {
         throw new Exception('Ticker is required');
     }
     
+    $price = null;
+    $source_location = $location;
+    
     // First, try to get the specific price for the location
     $stmt = $pdo->prepare("
-        SELECT p.price, p.last_updated 
+        SELECT p.price, p.last_updated, p.location
         FROM prices p 
         WHERE p.ticker = ? AND p.location = ?
         ORDER BY p.last_updated DESC 
@@ -30,8 +33,22 @@ try {
     $stmt->execute([$ticker, $location]);
     $price = $stmt->fetch();
     
+    // If no price found for the specific location, fall back to Proxion
+    if (!$price && $location !== 'Proxion') {
+        $stmt = $pdo->prepare("
+            SELECT p.price, p.last_updated, p.location
+            FROM prices p 
+            WHERE p.ticker = ? AND p.location = 'Proxion'
+            ORDER BY p.last_updated DESC 
+            LIMIT 1
+        ");
+        $stmt->execute([$ticker]);
+        $price = $stmt->fetch();
+        $source_location = 'Proxion';
+    }
+    
+    // If still no price found, try any location with is_default flag
     if (!$price) {
-        // If no price found for the specific location, try to get default price
         $stmt = $pdo->prepare("
             SELECT p.price, p.last_updated, p.location
             FROM prices p 
@@ -41,18 +58,8 @@ try {
         ");
         $stmt->execute([$ticker]);
         $price = $stmt->fetch();
-        
-        if (!$price) {
-            // If still no price found, try Proxion as fallback
-            $stmt = $pdo->prepare("
-                SELECT p.price, p.last_updated, p.location
-                FROM prices p 
-                WHERE p.ticker = ? AND p.location = 'Proxion'
-                ORDER BY p.last_updated DESC 
-                LIMIT 1
-            ");
-            $stmt->execute([$ticker]);
-            $price = $stmt->fetch();
+        if ($price) {
+            $source_location = $price['location'];
         }
     }
     
@@ -70,10 +77,11 @@ try {
             'location' => $location,
             'price' => (float)$price['price'],
             'last_updated' => $price['last_updated'],
-            'source_location' => $price['location'] ?? $location
+            'source_location' => $source_location,
+            'fallback_used' => $source_location !== $location
         ]);
     } else {
-        // No price found, return 0
+        // No price found anywhere, return 0
         echo json_encode([
             'success' => true,
             'ticker' => $ticker,
@@ -83,7 +91,8 @@ try {
             'price' => 0.0,
             'last_updated' => null,
             'source_location' => $location,
-            'message' => 'No price data available'
+            'message' => 'No price data available for this item',
+            'fallback_used' => false
         ]);
     }
     

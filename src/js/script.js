@@ -68,6 +68,22 @@ function initializeItemPrices() {
             updateAllPrices();
         }
     });
+	
+	// Row count input functionality
+    const rowCountInput = document.getElementById('row-count');
+    if (rowCountInput) {
+        rowCountInput.addEventListener('input', updateAddButtonLabel);
+        updateAddButtonLabel(); // Initial label update
+    }
+}
+
+function updateAddButtonLabel() {
+    const rowCount = parseInt(document.getElementById('row-count').value) || 1;
+    const button = document.getElementById('add-row-btn');
+    
+    if (button) {
+        button.textContent = rowCount === 1 ? 'Set Row' : 'Set Rows';
+    }
 }
 
 function setupLocationAutocomplete(input) {
@@ -140,10 +156,24 @@ function removeSuggestions(container) {
 function addPriceRow() {
     const table = document.getElementById('price-table');
     const tbody = table.querySelector('tbody');
-    const newRow = createPriceRow();
+    const rowCountInput = document.getElementById('row-count');
+    let rowCount = parseInt(rowCountInput.value) || 1;
     
-    tbody.appendChild(newRow);
-    initializePriceRow(newRow);
+    // Ensure minimum of 1 row
+    if (rowCount < 1) {
+        rowCount = 1;
+        rowCountInput.value = 1;
+    }
+    
+    // Clear existing rows
+    tbody.innerHTML = '';
+    
+    // Add the specified number of rows
+    for (let i = 0; i < rowCount; i++) {
+        const newRow = createPriceRow();
+        tbody.appendChild(newRow);
+        initializePriceRow(newRow);
+    }
 }
 
 function createPriceRow() {

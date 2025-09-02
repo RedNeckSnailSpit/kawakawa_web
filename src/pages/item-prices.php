@@ -29,7 +29,13 @@
         </tbody>
     </table>
     
-    <button type="button" class="btn" id="add-row-btn">Add Row</button>
+    <div class="form-group" style="display: flex; align-items: end; gap: 1rem;">
+		<div>
+			<label for="row-count">Number of rows:</label>
+			<input type="number" id="row-count" value="1" min="1" step="1" style="width: 100px;">
+		</div>
+		<button type="button" class="btn" id="add-row-btn">Set Row</button>
+	</div>
     
     <div class="total-display" id="grand-total">
         Total: 0.00
